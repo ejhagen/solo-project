@@ -1,8 +1,10 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-console.log('console log from index.js Page Loaded')
+import { render } from 'react-dom';
+import App from '/client/App';
 
-ReactDOM.render(
-    <h1>Hello World</h1>,
+console.log('---> console log from index.js')
+
+render(
+  <App />,  
   document.getElementById('root')
 );
