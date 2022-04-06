@@ -6,9 +6,11 @@ const port = 3000;
 //TODO:
 //routing methods
 //catch all route
+//middleware?
+const flyApiRouter = require('/flyApi');
 
 
-
+app.use('/assets', express.static('./client/assets'))
 //^^^^^ more specific route requests go above ^^^^^
 //routing methods go here
 
@@ -17,16 +19,17 @@ app.get('/', (req, res) => {
     res.status(200).sendFile(path.join(__dirname, '../src/index.html'))
 });
 
+app.use('/flyApi', flyApiRouter);
+
 // app.post('/', (req, res) => {
 //     res.status(200).json(res.locals) //finish out post req
 // })
-app.use('/assets', express.static('./client/assets'))
 
 
 //catch all for invalid file paths
 app.use('*', (req, res) => {
-    console.log('not a valid filepath')
-    res.sendStatus(404);
+    console.log('not a valid filepath');
+    res.status(404).send('This is not a valid Filepath')
 });
 
 //global error handler
@@ -45,3 +48,5 @@ app.use((err, req, res, next) => {
 app.listen(port, () => {
     console.log(`Express is listening on port ${port}`)
 });
+
+module.exports = app;

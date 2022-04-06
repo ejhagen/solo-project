@@ -1,6 +1,8 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
+//requiring in process for future use of process.env.NODE_ENV
 const process = require('process');
+
 
 module.exports = {
   //mode: can toggle from development to production with 'mode' using NODE_ENV = __ and process.env.NODE_ENV
@@ -11,15 +13,23 @@ module.exports = {
   output: {
       path: path.resolve(__dirname, "dist"),
       filename: 'bundle.js',
+      publicPath: '/'
   },
 
-  // devServer: {
-  //   static: {
-  //       directory: path.join(__dirname, '??')
-  //   },
-  //   compress: true,
-  //   port: 8080,
-  // },
+  devServer: {
+    static: {
+        directory: path.resolve(__dirname, 'dist'),
+        publicPath: '/'
+    },
+    compress: true,
+    port: 8080,
+                      //uri for proxy? 
+    //   proxy: {
+  //     '/api/**': {
+  //       target: 'http://localhost:3000/',
+  //       secure: false,
+  //     }
+  },
   module: {
       rules: [
           {
@@ -34,7 +44,7 @@ module.exports = {
           },
           {
               //Babel config for CSS files
-            test: /scss$/,
+            test: /.(css|scss)$/,
             exclude: /node_modules/,
             use: [
               // Creates `style` nodes from JS strings
@@ -62,4 +72,8 @@ module.exports = {
           template: path.join(__dirname, "src", "index.html"),
       }),
   ],
+  resolve: {
+    // Enable importing JS / JSX files without specifying their extension
+    extensions: ['.js', '.jsx'],
+  }
 }
