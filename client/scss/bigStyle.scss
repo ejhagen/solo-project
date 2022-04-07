@@ -1,0 +1,86 @@
+// @import 'littleStyle';
+
+body {
+    background-image: url('/cheesman.jpg');
+    // background-repeat: no-repeat;
+    // background-attachment: fixed;
+    
+    font-family: 'Montserrat', sans-serif;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    display: flex;
+}
+
+h4 {
+    display: flex;
+}
+
+#container {
+    // background-image: url('/cheesman.jpg');
+    background:rgb(45, 187, 69);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#displayBox {
+    display: flex;
+    flex-direction: column;
+    background:rgb(187, 45, 156);
+    width: 600px;
+    height: 600px;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    padding: 10px;
+}
+
+#image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+img {
+    display: flex;
+    width: 200px;
+    height: 200px;
+    justify-content: center;
+    align-items: center;
+    margin: 25px;
+    padding: 25px;
+}
+
+#questionBox {
+    background:rgb(168, 83, 44);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    padding: 5px;
+}
+
+#answerBox {
+    background:rgb(18, 46, 23);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin:10px;
+    padding: 5px;
+}
+
+#buttonBox {
+    background:rgb(50, 33, 150);
+    display: flex;
+    justify-content:center;
+    align-items: baseline;
+}
+
+button {
+    margin:10px;
+    padding: 5px;
+}

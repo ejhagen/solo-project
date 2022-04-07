@@ -15,7 +15,6 @@ module.exports = {
       filename: 'bundle.js',
       publicPath: '/'
   },
-
   devServer: {
     static: {
         directory: path.resolve(__dirname, 'dist'),
@@ -24,11 +23,12 @@ module.exports = {
     compress: true,
     port: 8080,
                       //uri for proxy? 
-    //   proxy: {
-  //     '/api/**': {
-  //       target: 'http://localhost:3000/',
-  //       secure: false,
-  //     }
+      proxy: {
+      '/fishdata': {
+        target: 'http://localhost:3000/',
+        secure: false,
+      }
+    },
   },
   module: {
       rules: [
@@ -44,7 +44,7 @@ module.exports = {
           },
           {
               //Babel config for CSS files
-            test: /.(css|scss)$/,
+            test: /scss$/,
             exclude: /node_modules/,
             use: [
               // Creates `style` nodes from JS strings
