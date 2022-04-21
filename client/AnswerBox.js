@@ -3,69 +3,81 @@ import React, { Component } from 'react';
 
 class AnswerBox extends Component {
   constructor(props) {
-    super(props);        
+    super(props);
+    this.state = {
+      selectedOption: ''
+    }
+    this.onValueChange = this.onValueChange.bind(this);
+    this.answerSubmit = this.answerSubmit.bind(this);
   }
 
-  render() {
-    console.log('--> render in answer box fired')
-    console.log(this.props.answerArray)
-        
-    // for (let i = 0; i < this.props.answerArray.length; i += 1) {
-        
-    //     // possibleAnswers.push(
-    //     //     <Answer className='answer' key={this.props.answerArray[i]}>
+  onValueChange (event) {
+    console.log('state updated')
+    this.setState({
+      selectedOption: event.target.value
+    })
+  }
 
-    //     //         <input type='radio' value={this.props.answerArray[i]} />
-    //     //         {this.props.answerArray[i]} 
-    //     //     </Answer>
-    //     // )
-    // }
+  answerSubmit (event) {
+    event.preventDefault();
+    console.log('this.state.selectedOption', this.state.selectedOption)
+    console.log('this.props.correctAnswer', this.props.correctAnswer)
 
-    // Needs handleClick event that sets state
+    if (this.state.selectedOption === this.props.correctAnswer) {
+      console.log('correct answer')
+    }
+    else {
+      console.log('wrong!')
+    }
+  }
+
+  render() {     
+    const answers = [...this.props.answersArray];
+    const newAnswers = answers.join('').split(',');
+    const answerDisplay = [];    
+    
+    for (let i = 0; i < newAnswers.length; i += 1) {        
+      answerDisplay.push(
+        <li>
+          <input 
+            type="radio"
+            id={newAnswers[i]} 
+            key={newAnswers[i]}
+            value={newAnswers[i]}
+            checked={this.state.selectedOption === newAnswers[i]}
+            onChange={this.onValueChange}
+          />
+          <label htmlFor={newAnswers[i]}>{newAnswers[i]}</label>
+        </li>
+      )
+    }
+
+    
 
     return (
       <div >
-
-        <div id="answerBox">
-            
-            {this.state.currQuestion}
-            
-          <ul>
-            {this.state.answersArray.forEach((el) => {
-              <li>
-                  <input type="radio" id="" name={el} value=""></input>
-
-              </li>
-            })}
-            {/* <li>
-            <input type='radio'></input> 
-            Barr's Emerger 
-            </li>
-            <li>
-            <input type='radio'></input> 
-            Zebra Midge
-            </li>
-            <li>
-            <input type='radio'></input> 
-            Chocolate Foamback
-            </li>
-            <li>
-            <input type='radio'></input> 
-            Jujubee Baetis
-            </li>  */}
-          </ul>
+        <div id="questionBox">
+        {this.props.currQuestion}
         </div>
+           
+        <form onSubmit={this.answerSubmit}>
+        
+          <div id="answerBox">            
+            <ul>
+              {answerDisplay}
+            </ul>
+          </div>
 
-        <div>        
-            <div id='buttonBox'>                  
-                <span>
-                    <button className="button" type="submit">Submit Answer</button>
-                <button className="button">Next</button>
-                </span>              
-            </div> 
-        </div> 
+          <div id='buttonBox'>                  
+            <span>
+            <button className="button" type="submit">Submit Answer</button>
+            <button className="button">Next</button>
+            </span>              
+          </div> 
 
-        </div>
+        </form>
+       
+      </div>
     )
     }
 

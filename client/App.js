@@ -3,16 +3,6 @@ import DisplayBox from './DisplayBox';
 import InputBox from './InputBox';
 
 
-//TODO:
-// children? -- displaybox --answerbox -answer
-//render functionality
-//fetch request?
-//onclick function for submit button --> invoke check answer fx
-//check answer function
-//onclick function for next button
-
-console.log('--> console.log from App.js ')
-
 
 class App extends Component {
   

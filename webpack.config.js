@@ -3,13 +3,14 @@ const path = require('path');
 //requiring in process for future use of process.env.NODE_ENV
 const process = require('process');
 const NodePolyfillPlugin = require("node-polyfill-webpack-plugin");
+// const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 
 module.exports = {
   //mode: can toggle from development to production with 'mode' using NODE_ENV = __ and process.env.NODE_ENV
   //entry: where webpack starts bundling the js files
   //output: describe the path and filename 
-  mode: 'development',
+  mode: process.env.NODE_ENV,
   entry: '/src/index.js',
   output: {
       path: path.resolve(__dirname, "dist"),
@@ -18,7 +19,7 @@ module.exports = {
   },
   devServer: {
     static: {
-        directory: path.resolve(__dirname, 'dist'),
+        directory: path.join(__dirname, 'dist'),
         publicPath: '/'
     },
     compress: true,
@@ -26,8 +27,14 @@ module.exports = {
                       //uri for proxy? 
       proxy: {
       '/fishdata': {
-        target: 'http://localhost:3000/',
+        target: 'http://localhost:3000',
         secure: false,
+        logLevel: 'debug'
+      },
+      '/assets/*': {
+        target: 'http://localhost:3000',
+        secure: false,
+        logLevel: 'debug'
       }
     },
   },
@@ -74,6 +81,7 @@ module.exports = {
           template: path.join(__dirname, "src", "index.html"),
       }),
       new NodePolyfillPlugin(),
+      // new MiniCssExtractPlugin(),
   ],
   resolve: {
     // Enable importing JS / JSX files without specifying their extension

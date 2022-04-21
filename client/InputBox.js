@@ -7,7 +7,10 @@ class InputBox extends Component {
       this.state = {
         imgsrc: '',
         question: '',
-        possibleAnswers: '',
+        answerA: '',
+        answerB: '',
+        answerC: '',
+        answerD: '',
         correctAnswer: '',
         addInfo: ''       
       }
@@ -43,7 +46,9 @@ class InputBox extends Component {
   }
 
   handleSubmit(event) {
-
+    
+    event.preventDefault();
+    
   }
 
   
@@ -55,38 +60,59 @@ class InputBox extends Component {
         <h3>Add your own question!</h3>
         <form id="form" onSubmit={this.handleSubmit}>                 
 
-            <div>
+          <div>
             <label>
                 Absolute Image Source URL: 
-                <input type="text" name="imgsrc" onChange={this.handleInputChange} value={this.state.value}/>
+                <input type="text" name="imgsrc" onChange={this.handleInputChange} value={this.state.imgsrc}/>
             </label>          
             </div>
 
             <div>
             <label>
                 Question:
-                <input type="text" name="question" onChange={this.handleInputChange} value={this.state.value}/>
+                <input type="text" name="question" onChange={this.handleInputChange} value={this.state.question}/>
             </label>        
             </div>
             
             <div>
             <label>
-                Possible Answers:
-                <input type="text" name="possibleAnswers" onChange={this.handleInputChange} value={this.state.value}/>
+                Answer 'A':
+                <input type="text" name="answerA" onChange={this.handleInputChange} value={this.state.answerA}/>
+            </label>
+            </div>
+
+            <div>
+            <label>
+                Answer 'B':
+                <input type="text" name="answerB" onChange={this.handleInputChange} value={this.state.answerB}/>
+            </label>
+            </div>
+
+            <div>
+            <label>
+                Answer 'C':
+                <input type="text" name="answerC" onChange={this.handleInputChange} value={this.state.answerC}/>
+            </label>
+            </div>
+
+            <div>
+            <label>
+                Answer 'D':
+                <input type="text" name="answerD" onChange={this.handleInputChange} value={this.state.answerD}/>
             </label>
             </div>
 
             <div>
             <label>
                 Correct Answer: 
-                <input type="text" name="correctAnswer" onChange={this.handleInputChange} value={this.state.value}/>
+                <input type="text" name="correctAnswer" onChange={this.handleInputChange} value={this.state.correctAnswer}/>
             </label>
             </div>
 
             <div>
             <label>
                 Additional Info:  
-                <input type="text" name="addInfo" onChange={this.handleInputChange} value={this.state.value}/>
+                <input type="text" name="addInfo" onChange={this.handleInputChange} value={this.state.addInfo}/>
             </label>
             </div>
             
