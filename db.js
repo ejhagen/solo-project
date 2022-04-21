@@ -4,16 +4,16 @@ const fs = require('fs');
 const fishbase = [
     {
         id: 1,
-        imgsrc: './client/assets/barremerger.jpg',
+        imgsrc: 'https://cdn.shoplightspeed.com/shops/606813/files/31004786/umpqua-barrs-emerger-bwo.jpg',
         question: 'Which fly is this?',
-        answerArray: ['Barr\'s Emerger', 'Zebra Midge', 'Chocolate Foamback', 'Jujubee Baetis'],
-        correctAnswer: 'Barr\'s Emerger',
+        answerArray: [`Barrs Emerger`, `Zebra Midge`, `Chocolate Foamback`, `Jujubee Baetis`],
+        correctAnswer: `Barrs Emerger`,
         addInfo: `This is a classic tailwater fly for the winter! Make sure to get it down in the water-column to where the fish are feeding`,
         haveSeen: false
     },
     {
         id: 2,
-        imgsrc: '../client/assets/woolybugger.jpg',
+        imgsrc: './client/assets/woolybugger.jpg',
         question: 'What kind of fly is this',
         answerArray: ['Elk Hair Caddis', 'Wooly Bugger', 'The Fly Formerly Known as Prince', 'Royal Wulff'],
         correctAnswer: 'Wooly Bugger',

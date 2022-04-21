@@ -14,14 +14,14 @@ module.exports = {
 };
 
 
-CREATE TABLE fish(
-  id VARCHAR NOT NULL,
-  imgsrc VARCHAR NOT NULL,
-  question VARCHAR,
-  answerArray VARCHAR,
-  correctAnswer VARCHAR,
-  addInfo VARCHAR,
-  haveSeen BOOLEAN);
+// CREATE TABLE fish(
+//   id VARCHAR NOT NULL,
+//   imgsrc VARCHAR NOT NULL,
+//   question VARCHAR,
+//   answerArray VARCHAR,
+//   correctAnswer VARCHAR,
+//   addInfo VARCHAR,
+//   haveSeen BOOLEAN);
 
 // INSERT INTO fish VALUES (
 //   '1',

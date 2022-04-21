@@ -3,7 +3,7 @@ import AnswerBox from './AnswerBox';
 import Buttons from './Buttons';
 import Question from './Question';
 import Image from './Image';
-import InputBox from './InputBox';
+
 
 class DisplayBox extends Component {
   constructor(props) {
@@ -19,6 +19,7 @@ class DisplayBox extends Component {
   //   console.log('handleNext invoked')
   // }
 
+  // Fetch call to db for fishdata
   componentDidMount() {
     // console.log('--> component did mount fired')   
     // fetch('/fishdata')
@@ -26,7 +27,8 @@ class DisplayBox extends Component {
     //     .then(fishdata => this.setState({fishdata}))        
     // .catch((err) => console.log('EH error in component did mount fetch request'))
   }
-   
+  
+  // method: checks answer against selected button and calls set state causing an update to 
 
   render() {
     
@@ -34,10 +36,11 @@ class DisplayBox extends Component {
     return (
       <div id="displayBox">        
         
-        <Image imgSource={this.props.imgsrc}/>
-        <Question currQuestion={this.props.question}/>
-        <AnswerBox answersArray={this.props.answerArray}/>
-        <Buttons /> 
+        <Image imgSource={this.state.imgsrc}/>
+        <Question currQuestion={this.state.question}/>
+        <AnswerBox currQuestion={this.state.question} answersArray={this.state.answerArray} correctAnswer={this.state.correctAnswer} addInfo={this.props.addInfo}/>
+
+        {/* <Buttons />  */}
        </div>
        
     )
