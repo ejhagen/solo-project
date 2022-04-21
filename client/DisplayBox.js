@@ -3,13 +3,21 @@ import AnswerBox from './AnswerBox';
 import Buttons from './Buttons';
 import Question from './Question';
 import Image from './Image';
-
+import InputBox from './InputBox';
 
 class DisplayBox extends Component {
   constructor(props) {
-    super(props);
-    this.state = {
-  };
+    super(props); 
+    // this.handleSubmit = this.handleSubmit.bind(this);
+    // this.handleNext = this.handleNext.bind(this);
+  }
+  // handleSubmit = () => {
+  //   console.log('handlesubmit invoked')
+  // }
+
+  // handleNext = () => {
+  //   console.log('handleNext invoked')
+  // }
 
   componentDidMount() {
     // console.log('--> component did mount fired')   
@@ -21,30 +29,23 @@ class DisplayBox extends Component {
    
 
   render() {
+    
      
     return (
       <div id="displayBox">        
         
-        <Image imgSource={this.state.imgsrc}/>
-        <Question currQuestion={this.state.question}/>
-        <AnswerBox answersArray={this.state.answerArray}/>
-        <Buttons />
+        <Image imgSource={this.props.imgsrc}/>
+        <Question currQuestion={this.props.question}/>
+        <AnswerBox answersArray={this.props.answerArray}/>
+        <Buttons /> 
        </div>
+       
     )
   }
 
 }
 
 
-const handleSubmit = () => {
-  console.log('submit button pressed')
-  //if radio isn't toggled do nothing
-  //check answer
-}
-
-const handleNext = () => {
-  console.log('next button pressed')
-}
 
 
 export default DisplayBox;

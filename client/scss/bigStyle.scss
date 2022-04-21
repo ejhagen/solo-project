@@ -26,6 +26,19 @@ h4 {
     display: flex;
 }
 
+#inputdiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 #container {
     // background-image: url('/cheesman.jpg');
     background:rgb(181, 196, 184);

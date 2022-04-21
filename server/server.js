@@ -1,56 +1,32 @@
 const express = require('express');
 const app = express();
 const port = 3000;
-
+const controller = require('./controller')
 const fs = require('fs/promises');
 const path = require('path');
 // const bodyParser = require('body-parser');
 
-// app.use(express.json());
+app.use(express.json());
 // app.use(bodyParser.urlencoded({ extended: true }));
 
-// const flyApiRouter = require(path.join(__dirname, '/router'));
-// app.use('/router', flyApiRouter);
+
+
 // app.use('/assets', express.static('./client/assets'));
-const createErr = (errInfo) => {
-    const { method, type, err } = errInfo;
-    return { 
-      log: `fileController.${method} ${type}: ERROR: ${typeof err === 'object' ? JSON.stringify(err) : err}`,
-      message: { err: `Error occurred in fileController.${method}. Check server logs for more details.` }
-    };
-  };
 
-// const controller = {};
-// controller.getFishData = (req, res, next) => {
-//     console.log('request has reached getFishData controller')
-//     // console.log('req.body', req.body)
-//     fs.readFile(path.resolve(__dirname, '../db.json'), 'UTF-8')
-//     .then(data => {
-//         // console.log(data)
-//       const parsedData = JSON.parse(data);
-//       console.log(parsedData[0])
-//       res.locals.fishData = parsedData[0];
-//       return next();
-//     })
-//     .catch(err => next(createErr({
-//       method: 'getFishData', 
-//       status: 404,
-//       type: 'when reading file', 
-//       err: err, 
-//     })));
-    
-// }
 
-app.get('/fishdata', 
-// controller.getFishData, 
-(req, res) => {
-    console.log('--> req through get fishdata in server')    
-    return res.status(200).json(fishbase[0])
+app.get('/fishdata', controller.getFishData, (req, res) => {
+  console.log('--> req through get fishdata in server')    
+  return res.status(200).json(fishbase[0])
 });
 
 
 //^^^^^ more specific route requests go above ^^^^^
 //routing methods go here
+
+// post to db router
+app.post('/fishdata', controller.postFishData, (req, res) => {
+  return res.status(201).json('entry created')
+});
 
 //handle get requests to root directory serving index.html
 app.get('/', (req, res) => {
@@ -89,8 +65,8 @@ const fishbase = [
         id: 1,
         imgsrc: 'https://cdn.shoplightspeed.com/shops/606813/files/31004786/umpqua-barrs-emerger-bwo.jpg',
         question: 'Which fly is this?',
-        answerArray: ['Barr\'s Emerger', 'Zebra Midge', 'Chocolate Foamback', 'Jujubee Baetis'],
-        correctAnswer: 'Barr\'s Emerger',
+        answerArray: [`Barrs Emerger`, `Zebra Midge`, `Chocolate Foamback`, `Jujubee Baetis`],
+        correctAnswer: `Barrs Emerger`,
         addInfo: `This is a classic tailwater fly for the winter! Make sure to get it down in the water-column to where the fish are feeding`,
         haveSeen: false
     },
