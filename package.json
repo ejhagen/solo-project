@@ -11,7 +11,10 @@
   "author": "ejh ericjameshagen@gmail.com github username: ejhagen",
   "license": "ISC",
   "dependencies": {
+    "crypto-browserify": "^3.12.0",
     "express": "^4.17.3",
+    "node-polyfill-webpack-plugin": "^1.1.4",
+    "pg": "^8.7.3",
     "postgres": "^3.0.5",
     "react": "^18.0.0",
     "react-dom": "^18.0.0"

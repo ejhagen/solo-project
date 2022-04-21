@@ -2,6 +2,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 //requiring in process for future use of process.env.NODE_ENV
 const process = require('process');
+const NodePolyfillPlugin = require("node-polyfill-webpack-plugin");
 
 
 module.exports = {
@@ -30,6 +31,7 @@ module.exports = {
       }
     },
   },
+  // target: 'node',
   module: {
       rules: [
           {
@@ -71,9 +73,22 @@ module.exports = {
       new HtmlWebpackPlugin({
           template: path.join(__dirname, "src", "index.html"),
       }),
+      new NodePolyfillPlugin(),
   ],
   resolve: {
     // Enable importing JS / JSX files without specifying their extension
-    extensions: ['.js', '.jsx'],
+    extensions: ['.js', '.jsx'], 
+    fallback: {
+      "fs": false,
+      "tls": false,
+      "net": false,
+      "path": false,
+      "zlib": false,
+      "http": false,
+      "https": false,
+      "stream": false,
+      "crypto": false,
+      "crypto-browserify": require.resolve('crypto-browserify'),
+    } 
   }
 }
