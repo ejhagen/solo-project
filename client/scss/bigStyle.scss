@@ -1,7 +1,14 @@
-// @import 'littleStyle';
+// @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
 
 body {
-    background-image: url('/cheesman.jpg');
+    background:rgb(167, 173, 168);
     // background-repeat: no-repeat;
     // background-attachment: fixed;
     
@@ -12,6 +19,7 @@ body {
 
 h1 {
     display: flex;
+    height: 60px;
 }
 
 h4 {
@@ -20,7 +28,7 @@ h4 {
 
 #container {
     // background-image: url('/cheesman.jpg');
-    background:rgb(45, 187, 69);
+    background:rgb(181, 196, 184);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -30,13 +38,15 @@ h4 {
 #displayBox {
     display: flex;
     flex-direction: column;
-    background:rgb(187, 45, 156);
+    background:rgb(126, 122, 125);
     width: 600px;
     height: 600px;
     justify-content: center;
     align-items: center;
     margin: 10px;
     padding: 10px;
+    border: 4px solid rgb(48, 47, 47);
+    border-radius: 10px;
 }
 
 #image {
@@ -47,40 +57,58 @@ h4 {
 
 img {
     display: flex;
-    width: 200px;
-    height: 200px;
+    width: auto;
+    height: 250px;
     justify-content: center;
     align-items: center;
     margin: 25px;
     padding: 25px;
+    border: 4px solid rgb(48, 47, 47);
+    border-radius: 10px;
 }
 
 #questionBox {
-    background:rgb(168, 83, 44);
+    background:rgb(209, 194, 187);
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 10px;
     padding: 5px;
+    border: 4px solid rgb(48, 47, 47);
+    border-radius: 10px;
 }
 
 #answerBox {
-    background:rgb(18, 46, 23);
+    background:rgb(209, 219, 211);
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin:10px;
     padding: 5px;
+    border: 4px solid rgb(48, 47, 47);
+    border-radius: 10px;
 }
 
 #buttonBox {
-    background:rgb(50, 33, 150);
+    background:rgb(195, 197, 192);
     display: flex;
     justify-content:center;
     align-items: baseline;
+    border: 4px solid rgb(48, 47, 47);
+    border-radius: 10px;
 }
 
 button {
-    margin:10px;
-    padding: 5px;
+    margin:8px;
+    padding: 3px;
 }
+
+li {
+    margin:8px;
+    padding: 5px;
+    list-style-type: none;
+}
+
+input[type="radio"] {
+    margin-right: 7px;
+  }

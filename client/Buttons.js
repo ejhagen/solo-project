@@ -23,14 +23,5 @@ class Buttons extends Component {
     }
 }
 
-const handleSubmit = () => {
-  console.log('submit button pressed')
-  //if radio isn't toggled do nothing
-  //check answer
-}
-
-const handleNext = () => {
-  console.log('next button pressed')
-}
 
 export default Buttons;

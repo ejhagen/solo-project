@@ -8,11 +8,11 @@ class Question extends Component {
 
     render() {
         
-
+        console.log('state in displaybox', this.state)
       return (
           <div id="questionBox">
-               SOME TEXT HERE IN QUESTION DIV
-          {/* {this.state.question} */}
+            {/* IF I WAS GOOD AT PROGRAMMING THERE WOULD BE A QUESTION HERE */}
+           {this.props.currQuestion}
           </div>        
       )
     }

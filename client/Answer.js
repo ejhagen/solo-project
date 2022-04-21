@@ -8,10 +8,29 @@ class Answer extends Component {
     }
 
     render() {
-        
+        console.log(this.props.answersArray)
 
       return (
-        <div className='answers'> SOME TEXT HERE IN ANSWER DIV
+        <div className='answers'> 
+        <ul>
+            <li>
+                <input type='radio'></input> 
+                Barr's Emerger 
+            </li>
+            <li>
+                <input type='radio'></input> 
+                'Zebra Midge' 
+            </li>
+            <li>
+                <input type='radio'></input> 
+                'Chocolate Foamback'
+            </li>
+            <li>
+                <input type='radio'></input> 
+                'Jujubee Baetis'
+            </li> 
+        
+        </ul>
             {/* {possibleAnswers} */}
         </div>
       )

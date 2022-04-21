@@ -8,10 +8,10 @@ class Image extends Component {
 
     render() {
         
-
+      console.log('props in Image', this.props)
       return (
-        <div className='image'> SOME TEXT HERE IN IMAGE DIV
-           <img src='badurl.com' />
+        <div className='image'>
+           <img src={this.props.imgSource} />
         </div>
       )
     }
