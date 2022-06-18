@@ -1,9 +1,5 @@
 import React, { Component } from 'react';
 import QuestionBox from './QuestionBox';
-// import Buttons from './Buttons';
-// import Question from './Question';
-// import Image from './Image';
-
 
 class DisplayBox extends Component {
   constructor(props) {
@@ -13,18 +9,17 @@ class DisplayBox extends Component {
       question: '',
       answerArray: '',  
       correctAnswer: '',
-      addInfo: ''  
+      addInfo: '',
+      questionNumber: 0      
     }
-    // this.handleSubmit = this.handleSubmit.bind(this);
-    // this.handleNext = this.handleNext.bind(this);
+    this.nextQuestion.bind(this);
   }
-  // handleSubmit = () => {
-  //   console.log('handlesubmit invoked')
-  // }
-
-  // handleNext = () => {
-  //   console.log('handleNext invoked')
-  // }
+  
+  nextQuestion = (number) => {
+    this.setState({questionNumber: number + 1})
+    console.log(this.state)
+  }
+  
 
   // Fetch call to db for fishdata
   componentDidMount() {
@@ -33,11 +28,11 @@ class DisplayBox extends Component {
         .then(response =>  response.json())
         // .then(fishdata => console.log('answerArray,', fishdata.answerarray))
         .then(fishdata => this.setState({
-          imgsrc: fishdata.imgsrc,
-          question: fishdata.question,
-          answerArray: fishdata.answerarray,
-          correctAnswer: fishdata.correctanswer,
-          addInfo: fishdata.addinfo
+          imgsrc: fishdata[this.state.questionNumber].imgsrc,
+          question: fishdata[this.state.questionNumber].question,
+          answerArray: fishdata[this.state.questionNumber].answerarray,
+          correctAnswer: fishdata[this.state.questionNumber].correctanswer,
+          addInfo: fishdata[this.state.questionNumber].addinfo
          }))        
     .catch((err) => console.log('EH error in component did mount fetch request'));
   };
@@ -45,14 +40,16 @@ class DisplayBox extends Component {
   
 
   render() {
-    // console.log(this.state)
+    
     return (
-      <div id="displayBox">         
-        {/* <Image imgSource={this.state.imgsrc}/>   */}
+      <div id="displayBox">        
+        
         <QuestionBox imgSource={this.state.imgsrc} currQuestion={this.state.question} 
         answersArray={this.state.answerArray} 
         correctAnswer={this.state.correctAnswer} 
         addInfo={this.state.addInfo}
+        questionNumber={this.state.questionNumber}
+        nextSubmit={() => this.nextQuestion}
         />
       </div>
        

@@ -23,28 +23,34 @@ class QuestionBox extends Component {
 
   answerSubmit (event) {
     event.preventDefault();
-    // console.log('this.state.selectedOption', this.state.selectedOption)
-    // console.log('this.props.correctAnswer', this.props.correctAnswer)
+    if (this.state.selectedOption === '') {
+      console.log('selection is empty')
+    } else {
+      if (this.state.selectedOption === this.props.correctAnswer) {
+        // console.log('correct answer')
+        //update state here to hide answers and show addInfo
+        this.setState({submitted: true, isCorrect: true})
+      }
+      else {
+        // console.log('wrong!')
+        this.setState({submitted: true})
+      }
+    }
 
-    if (this.state.selectedOption === this.props.correctAnswer) {
-      // console.log('correct answer')
-      //update state here to hide answers and show addInfo
-      this.setState({submitted: true, isCorrect: true})
-    }
-    else {
-      // console.log('wrong!')
-      this.setState({submitted: true})
-    }
+
+    
   }
 
+  
+
   render() {     
-    const answers = [...this.props.answersArray];
+    const answers = [this.props.answersArray];
     const newAnswers = answers.join('').split(',');
     const answerDisplay = [];    
     const submitted = this.state.submitted;
     const addInfo = this.props.addInfo;
     const feedback = (this.state.isCorrect ? `That is correct!` : `That is incorrect.`) + `The correct answer is ${this.props.correctAnswer}.`;
-    // console.log('props',this.props)
+    
     
     for (let i = 0; i < newAnswers.length; i += 1) {        
       answerDisplay.push(
@@ -86,7 +92,9 @@ class QuestionBox extends Component {
           <div id='buttonBox'>                  
             <span>
             <button className="button" type="submit">Submit Answer</button>
-            <button className="button">Next</button>
+            <button 
+            onClick={this.props.nextSubmit(this.props.questionNumber)}
+             className="button" type="next">Next</button>
             </span>              
           </div> 
 
