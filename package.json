@@ -4,9 +4,9 @@
   "description": "flydentifier",
   "main": "index.js",
   "scripts": {
-    "start": "NODE_ENV=development nodemon server/server.js & NODE_ENV=development npx webpack serve --open",
+    "start": "NODE_ENV=development nodemon ./server/server.js & NODE_ENV=development npx webpack serve --open",
     "build": "NODE_ENV=production webpack",
-    "dev": "NODE_ENV=development nodemon /server/server.js & NODE_ENV=development npx webpack serve --open"
+    "dev": "NODE_ENV=development nodemon ./server/server.js & NODE_ENV=development npx webpack serve --open"
   },
   "author": "ejh ericjameshagen@gmail.com github username: ejhagen",
   "license": "ISC",

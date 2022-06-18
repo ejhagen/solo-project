@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import AnswerBox from './AnswerBox';
-import Buttons from './Buttons';
-import Question from './Question';
-import Image from './Image';
+import QuestionBox from './QuestionBox';
+// import Buttons from './Buttons';
+// import Question from './Question';
+// import Image from './Image';
 
 
 class DisplayBox extends Component {
@@ -28,7 +28,7 @@ class DisplayBox extends Component {
 
   // Fetch call to db for fishdata
   componentDidMount() {
-    console.log('--> component did mount fired')   
+    // console.log('--> component did mount fired')   
     fetch('/fishdata')
         .then(response =>  response.json())
         // .then(fishdata => console.log('answerArray,', fishdata.answerarray))
@@ -45,14 +45,14 @@ class DisplayBox extends Component {
   
 
   render() {
-    
+    // console.log(this.state)
     return (
       <div id="displayBox">         
-        <Image imgSource={this.state.imgsrc}/>        
-        <AnswerBox currQuestion={this.state.question} 
+        {/* <Image imgSource={this.state.imgsrc}/>   */}
+        <QuestionBox imgSource={this.state.imgsrc} currQuestion={this.state.question} 
         answersArray={this.state.answerArray} 
         correctAnswer={this.state.correctAnswer} 
-        addInfo={this.props.addInfo}
+        addInfo={this.state.addInfo}
         />
       </div>
        

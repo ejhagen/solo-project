@@ -9,8 +9,8 @@ controller.getFishData = async (req, res, next) => {
     const getFishQ = `SELECT * FROM fish;`;      
     const getFish =  await db.query(getFishQ);
     // console.log('--> query for all fish');
-    // console.log('getfish.rows', getFish.rows)
-    res.locals.newFish = getFish.rows[1];
+    console.log('getfish.rows', getFish.rows)
+    res.locals.newFish = getFish.rows[0];
     return next();
   }
   catch (err) { 

@@ -1,18 +1,21 @@
 import React, { Component } from 'react';
 
 
-class AnswerBox extends Component {
+class QuestionBox extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedOption: ''
+      selectedOption: '',
+      submitted: false,
+      isCorrect: false
     }
     this.onValueChange = this.onValueChange.bind(this);
     this.answerSubmit = this.answerSubmit.bind(this);
   }
 
   onValueChange (event) {
-    console.log('state updated')
+    // console.log('state updated')
+    
     this.setState({
       selectedOption: event.target.value
     })
@@ -20,14 +23,17 @@ class AnswerBox extends Component {
 
   answerSubmit (event) {
     event.preventDefault();
-    console.log('this.state.selectedOption', this.state.selectedOption)
-    console.log('this.props.correctAnswer', this.props.correctAnswer)
+    // console.log('this.state.selectedOption', this.state.selectedOption)
+    // console.log('this.props.correctAnswer', this.props.correctAnswer)
 
     if (this.state.selectedOption === this.props.correctAnswer) {
-      console.log('correct answer')
+      // console.log('correct answer')
+      //update state here to hide answers and show addInfo
+      this.setState({submitted: true, isCorrect: true})
     }
     else {
-      console.log('wrong!')
+      // console.log('wrong!')
+      this.setState({submitted: true})
     }
   }
 
@@ -35,6 +41,10 @@ class AnswerBox extends Component {
     const answers = [...this.props.answersArray];
     const newAnswers = answers.join('').split(',');
     const answerDisplay = [];    
+    const submitted = this.state.submitted;
+    const addInfo = this.props.addInfo;
+    const feedback = (this.state.isCorrect ? `That is correct!` : `That is incorrect.`) + `The correct answer is ${this.props.correctAnswer}.`;
+    // console.log('props',this.props)
     
     for (let i = 0; i < newAnswers.length; i += 1) {        
       answerDisplay.push(
@@ -56,15 +66,20 @@ class AnswerBox extends Component {
 
     return (
       <div >
+        <div className='image'>          
+          <img src={this.props.imgSource} />
+        </div> 
+        
         <div id="questionBox">
-        {this.props.currQuestion}
+          {this.props.currQuestion}
         </div>
            
         <form onSubmit={this.answerSubmit}>
         
           <div id="answerBox">            
             <ul>
-              {answerDisplay}
+              {submitted ? feedback : ''}
+              {this.state.submitted ? addInfo: answerDisplay}              
             </ul>
           </div>
 
@@ -84,4 +99,4 @@ class AnswerBox extends Component {
 }
 
 
-export default AnswerBox;
+export default QuestionBox;

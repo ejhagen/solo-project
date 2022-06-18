@@ -19,7 +19,7 @@ module.exports = {
   },
   devServer: {
     static: {
-        directory: path.join(__dirname, 'dist'),
+        directory: path.join(__dirname, 'client'),
         publicPath: '/'
     },
     compress: true,
@@ -27,14 +27,10 @@ module.exports = {
                       //uri for proxy? 
       proxy: {
       '/fishdata': {
-        target: 'http://localhost:3000',
-        secure: false,
-        logLevel: 'debug'
+        target: 'http://localhost:3000'
       },
       '/assets/*': {
-        target: 'http://localhost:3000',
-        secure: false,
-        logLevel: 'debug'
+        target: 'http://localhost:3000'        
       }
     },
   },
