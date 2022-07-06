@@ -21,26 +21,10 @@ class InputBox extends Component {
 
   handleInputChange(event) {
     const target = event.target; 
-    // const imgsrc = target.imgsrc;
-    // const question = target.question;
-    // const possibleAnswers = target.possibleAnswers;
-    // const correctAnswer = target.correctAnswer;
-    // const addInfo = target.addInfo;
-
-    const name = target.name;
-    // const value = target.type === 'imgsrc' ? target.value: 
-    // target.type === 'question' ? target.value:
-    // target.type === 'possibleAnswers' ? target.value:
-    // target.type === 'correctAnswer' ? target.value:
-    // target.type === 'addInfo' ? target.value: console.log('1');
+    const name = target.name;    
     const value = target.type === 'imgsrc'
 
-    this.setState({
-    //   [imgsrc]: value,
-    //   [question]: value,
-    //   [possibleAnswers]: value,
-    //   [correctAnswer]: value,
-    //   [addInfo]: value
+    this.setState({    
       [name]: value
     })
   }
