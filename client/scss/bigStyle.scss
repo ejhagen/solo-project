@@ -1,17 +1,19 @@
-// @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap');
-
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    // background-image: url(./spwc.jpg);
+    // background-color:rgb(48, 47, 47);
+    font-family: fantasy;
   }
 
 body {
-    background:rgb(167, 173, 168);
-    // background-repeat: no-repeat;
-    // background-attachment: fixed;
-    
+    background-color:rgb(167, 173, 168);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background: url(https://i.imgur.com/GBGrN5b.jpeg)  no-repeat scroll left center;
+    background-position: 50% 50%;
+    background-size: 1920px 1200px;
     font-family: 'Montserrat', sans-serif;
     justify-content: center;
     align-items: center;
@@ -20,6 +22,7 @@ body {
 h1 {
     display: flex;
     height: 60px;
+    padding: 20px;
 }
 
 h4 {
@@ -30,6 +33,7 @@ h4 {
     display: flex;
     justify-content: center;
     align-items: center;
+    border:rgb(48, 47, 47) solid 3px;
 }
 
 #form {
@@ -40,8 +44,8 @@ h4 {
 }
 
 #container {
-    // background-image: url('/cheesman.jpg');
-    background:rgb(181, 196, 184);
+    // background-image: url(./spwc.jpg);
+    // background-color:rgb(181, 196, 184);
     display: flex;
     flex-direction: column;
     justify-content: center;

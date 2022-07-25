@@ -6,11 +6,13 @@ const controller = {};
 controller.getFishData = async (req, res, next) => {
   try {    
     // dbq select statement
+    
     const getFishQ = `SELECT * FROM fish;`;      
     const getFish =  await db.query(getFishQ);
-    console.log('--> query for all fish');
-    console.log('getfish.rows', getFish.rows)
+    // console.log('--> query for all fish');
+    // console.log('getfish.rows', getFish.rows)
     res.locals.newFish = getFish.rows;
+    
     return next();
   }
   catch (err) { 
@@ -24,9 +26,9 @@ controller.getFishData = async (req, res, next) => {
 
 // post Fish Data Middleware
 controller.postFishData = async (req, res, next) => {
-  console.log('--> routed to postFishData')
+  // console.log('--> routed to postFishData')
   try {
-    console.log('req.body', req.body)
+    // console.log('req.body', req.body)
     const { imgsrc, question, answerA, answerB, answerC, answerD, correctAnswer, addInfo } = req.body;
     // first check that all inputs are valid
     if ( typeof imgsrc !== 'string' || typeof question !== 'string' || typeof answerA !== 'string' || typeof answerB !== 'string' ||typeof answerC !== 'string' || typeof correctAnswer !== 'string' ||  typeof addInfo !== 'string') {
@@ -38,15 +40,15 @@ controller.postFishData = async (req, res, next) => {
     // dbq insert into statement
     const addFishQ = `INSERT INTO fish VALUES ($1, $2, $3, $4, $5, $6, $7)`
     // need to mutate possible answers before adding to db
-    const possibleAnswers = JSON.stringify(answerA + ',' + answerB + ',' + answerC + ',' + answerD);
+    const possibleAnswers = answerA + ',' + answerB + ',' + answerC + ',' + answerD;
     // define haveSeen
     const haveSeen = false;
 
     // define params in order
     const params = [ id, imgsrc, question, possibleAnswers, correctAnswer, addInfo, haveSeen]
     const addFish =  await db.query(addFishQ, params);
-    console.log('--> added fish to db');
-    res.locals.newFish = addFish;
+    // console.log('--> added fish to db');
+    res.locals.addedFish = addFish;
     return next();
   }
   catch (err) { 
