@@ -14,7 +14,7 @@ class QuestionBox extends Component {
   }
 
   onValueChange (event) {
-    // console.log('state updated')
+    console.log('state updated')
     
     this.setState({
       selectedOption: event.target.value
