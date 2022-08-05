@@ -12,10 +12,13 @@
   "license": "ISC",
   "dependencies": {
     "crypto-browserify": "^3.12.0",
+    "eslint": "^8.21.0",
+    "eslint-config-prettier": "^8.5.0",
     "express": "^4.17.3",
     "node-polyfill-webpack-plugin": "^1.1.4",
     "pg": "^8.7.3",
     "postgres": "^3.0.5",
+    "prettier": "^2.7.1",
     "react": "^18.0.0",
     "react-dom": "^18.0.0"
   },
@@ -25,6 +28,7 @@
     "@babel/preset-react": "^7.16.7",
     "babel-loader": "^8.2.4",
     "css-loader": "^6.7.1",
+    "eslint-webpack-plugin": "^3.2.0",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.5.0",
     "sass": "^1.50.0",

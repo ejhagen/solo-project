@@ -1,9 +1,9 @@
-const express = require('express');
+const express = require("express");
 const app = express();
 const port = 3000;
-const fs = require('fs/promises');
-const path = require('path');
-const router = require('./router')
+const fs = require("fs/promises");
+const path = require("path");
+const router = require("./router");
 app.use(express.json());
 
 /////////// DEPRECATED ///////////
@@ -11,50 +11,49 @@ app.use(express.json());
 // const bodyParser = require('body-parser');
 // app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use('/assets', express.static(path.join(__dirname, '../client/assets')));
+app.use("/assets", express.static(path.join(__dirname, "../client/assets")));
 // router for fishdata requests
-app.use('/fishdata', router);
+app.use("/fishdata", router);
 
 //^^^^^ more specific route requests go above ^^^^^
 
 // handle get requests to root directory serving index.html
-app.get('/', (req, res) => {
-  console.log('--> request went through root server req')
-  res.status(200).sendFile(path.join(__dirname, '../src/index.html'))
+app.get("/", (req, res) => {
+  console.log("--> request went through root server req");
+  res.status(200).sendFile(path.join(__dirname, "../src/index.html"));
 });
 
 // catch all for invalid file paths
-app.use('/*', (req, res) => {
-  console.log('not a valid filepath');
-  res.status(404).send('This is not a valid Filepath')
+app.use("/*", (req, res) => {
+  console.log("not a valid filepath");
+  res.status(404).send("This is not a valid Filepath");
 });
 
 // global error handler
 app.use((err, req, res, next) => {
-    console.log('global error handler invoked')
-    const defaultErr = {
-        log: 'express error handler caught error',
+  console.log("global error handler invoked");
+  const defaultErr = {
+    log: "express error handler caught error",
     status: 400,
-    message: { err: 'An error occurred' }
+    message: { err: "An error occurred" },
   };
-    const errorObj = Object.assign({}, defaultErr, err)
-    return res.status(errorObj.status).send(errorObj.message)
+  const errorObj = Object.assign({}, defaultErr, err);
+  return res.status(errorObj.status).send(errorObj.message);
 });
 
 // server listen
 app.listen(port, () => {
-  console.log(`Express is listening on port ${port}`)
+  console.log(`Express is listening on port ${port}`);
 });
 
 // export module
 module.exports = app;
 
-
 //////////////////// DEPRECATED ///////////////////
 // app.use('/assets', express.static('./client/assets'));
 
 // app.get('/fishdata', controller.getFishData, (req, res) => {
-//   console.log('--> req through get fishdata in server')    
+//   console.log('--> req through get fishdata in server')
 //   return res.status(200).json(res.locals.newFish)
 // });
 
@@ -62,25 +61,24 @@ module.exports = app;
 
 // post to db router
 // app.post('/fishdata', controller.postFishData, (req, res) => {
-    //   console.log('--> request went through post router')
-    //   return res.status(201).json('entry created')
-    // });
-    
+//   console.log('--> request went through post router')
+//   return res.status(201).json('entry created')
+// });
 
 // const fishbase = [
 //     {
-    //         id: 1,
-    //         imgsrc: 'https://cdn.shoplightspeed.com/shops/606813/files/31004786/umpqua-barrs-emerger-bwo.jpg',
-    //         question: 'Which fly is this?',
-    //         answerArray: [`Barrs Emerger`, `Zebra Midge`, `Chocolate Foamback`, `Jujubee Baetis`],
-    //         correctAnswer: `Barrs Emerger`,
-    //         addInfo: `This is a classic tailwater fly for the winter! Make sure to get it down in the water-column to where the fish are feeding`,
-    //         haveSeen: false
-    //     },
-    //     {
-        //         id: 2,
-        //         imgsrc: './client/assets/woolybugger.jpg',
-        //         question: 'What kind of fly is this',
+//         id: 1,
+//         imgsrc: 'https://cdn.shoplightspeed.com/shops/606813/files/31004786/umpqua-barrs-emerger-bwo.jpg',
+//         question: 'Which fly is this?',
+//         answerArray: [`Barrs Emerger`, `Zebra Midge`, `Chocolate Foamback`, `Jujubee Baetis`],
+//         correctAnswer: `Barrs Emerger`,
+//         addInfo: `This is a classic tailwater fly for the winter! Make sure to get it down in the water-column to where the fish are feeding`,
+//         haveSeen: false
+//     },
+//     {
+//         id: 2,
+//         imgsrc: './client/assets/woolybugger.jpg',
+//         question: 'What kind of fly is this',
 //         answerArray: ['Elk Hair Caddis', 'Wooly Bugger', 'The Fly Formerly Known as Prince', 'Royal Wulff'],
 //         correctAnswer: 'Wooly Bugger',
 //         addInfo: `You can fish Wooly Buggers anytime of the year. Dead drift them downstream then do a Leisenring Lift. Olive and black are the most successful patterns.`,

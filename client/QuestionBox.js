@@ -1,63 +1,57 @@
-import React, { Component } from 'react';
-
+import React, { Component } from "react";
 
 class QuestionBox extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedOption: '',
+      selectedOption: "",
       submitted: false,
-      isCorrect: false
-    }
+      isCorrect: false,
+    };
     this.onValueChange = this.onValueChange.bind(this);
     this.answerSubmit = this.answerSubmit.bind(this);
   }
 
-  onValueChange (event) {
-    console.log('state updated')
-    
+  onValueChange(event) {
+    console.log("state updated");
+
     this.setState({
-      selectedOption: event.target.value
-    })
+      selectedOption: event.target.value,
+    });
   }
 
-  answerSubmit (event) {
+  answerSubmit(event) {
     event.preventDefault();
-    if (this.state.selectedOption === '') {
-      console.log('selection is empty')
+    if (this.state.selectedOption === "") {
+      console.log("selection is empty");
     } else {
       if (this.state.selectedOption === this.props.correctAnswer) {
         // console.log('correct answer')
         //update state here to hide answers and show addInfo
-        this.setState({submitted: true, isCorrect: true})
-      }
-      else {
+        this.setState({ submitted: true, isCorrect: true });
+      } else {
         // console.log('wrong!')
-        this.setState({submitted: true})
+        this.setState({ submitted: true });
       }
     }
-
-
-    
   }
 
-  
-
-  render() {     
+  render() {
     const answers = [this.props.answersArray];
-    const newAnswers = answers.join('').split(',');
-    const answerDisplay = [];    
+    const newAnswers = answers.join("").split(",");
+    const answerDisplay = [];
     const submitted = this.state.submitted;
     const addInfo = this.props.addInfo;
-    const feedback = (this.state.isCorrect ? `That is correct!` : `That is incorrect.`) + `The correct answer is ${this.props.correctAnswer}.`;
-    
-    
-    for (let i = 0; i < newAnswers.length; i += 1) {        
+    const feedback =
+      (this.state.isCorrect ? `That is correct!` : `That is incorrect.`) +
+      `The correct answer is ${this.props.correctAnswer}.`;
+
+    for (let i = 0; i < newAnswers.length; i += 1) {
       answerDisplay.push(
         <li>
-          <input 
+          <input
             type="radio"
-            id={newAnswers[i]} 
+            id={newAnswers[i]}
             key={newAnswers[i]}
             value={newAnswers[i]}
             checked={this.state.selectedOption === newAnswers[i]}
@@ -65,46 +59,43 @@ class QuestionBox extends Component {
           />
           <label htmlFor={newAnswers[i]}>{newAnswers[i]}</label>
         </li>
-      )
+      );
     }
 
-    
-
     return (
-      <div >
-        <div className='image'>          
+      <div>
+        <div className="image">
           <img src={this.props.imgSource} />
-        </div> 
-        
-        <div id="questionBox">
-          {this.props.currQuestion}
         </div>
-           
+
+        <div id="questionBox">{this.props.currQuestion}</div>
+
         <form onSubmit={this.answerSubmit}>
-        
-          <div id="answerBox">            
+          <div id="answerBox">
             <ul>
-              {submitted ? feedback : ''}
-              {this.state.submitted ? addInfo: answerDisplay}              
+              {submitted ? feedback : ""}
+              {this.state.submitted ? addInfo : answerDisplay}
             </ul>
           </div>
 
-          <div id='buttonBox'>                  
+          <div id="buttonBox">
             <span>
-            <button className="button" type="submit">Submit Answer</button>
-            <button 
-            onClick={this.props.nextSubmit(this.props.questionNumber)}
-             className="button" type="next">Next</button>
-            </span>              
-          </div> 
-
+              <button className="button" type="submit">
+                Submit Answer
+              </button>
+              <button
+                onClick={this.props.nextSubmit(this.props.questionNumber)}
+                className="button"
+                type="next"
+              >
+                Next
+              </button>
+            </span>
+          </div>
         </form>
-       
       </div>
-    )
-    }
-
+    );
+  }
 }
-
 
 export default QuestionBox;

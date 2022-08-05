@@ -1,18 +1,18 @@
-const { Pool } = require('pg');
+const { Pool } = require("pg");
 
-const PG_URL = 'postgres://zuaplohv:cyy4fBp1qj27mVv-81zrGuwO7As5YEbt@heffalump.db.elephantsql.com/zuaplohv';
+const PG_URL =
+  "postgres://zuaplohv:cyy4fBp1qj27mVv-81zrGuwO7As5YEbt@heffalump.db.elephantsql.com/zuaplohv";
 
 const pool = new Pool({
-  connectionString: PG_URL
+  connectionString: PG_URL,
 });
 
 module.exports = {
   query: (text, params, callback) => {
     // console.log('executed query', text);
     return pool.query(text, params, callback);
-  }
+  },
 };
-
 
 // CREATE TABLE fish(
 //   id VARCHAR NOT NULL,
@@ -33,4 +33,3 @@ module.exports = {
 //         false)
 
 // Had an issue with single quotes when inserting into DB
-  
