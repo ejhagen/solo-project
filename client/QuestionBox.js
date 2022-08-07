@@ -13,7 +13,7 @@ class QuestionBox extends Component {
   }
 
   onValueChange(event) {
-    console.log("state updated");
+    console.log("state updated in question box");
 
     this.setState({
       selectedOption: event.target.value,
@@ -43,7 +43,7 @@ class QuestionBox extends Component {
     const submitted = this.state.submitted;
     const addInfo = this.props.addInfo;
     const feedback =
-      (this.state.isCorrect ? `That is correct!` : `That is incorrect.`) +
+      (this.state.isCorrect ? `That is correct! ` : `That is incorrect. `) +
       `The correct answer is ${this.props.correctAnswer}.`;
 
     for (let i = 0; i < newAnswers.length; i += 1) {
@@ -84,7 +84,8 @@ class QuestionBox extends Component {
                 Submit Answer
               </button>
               <button
-                onClick={this.props.nextSubmit(this.props.questionNumber)}
+                // onClick={this.props.nextSubmit(this.props.questionNumber)}
+                onClick={this.props.handleNext}
                 className="button"
                 type="next"
               >
