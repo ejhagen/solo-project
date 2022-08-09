@@ -34,12 +34,12 @@ class App extends Component {
         <h4> A fly fisher's online companion </h4>
         <div>
           <DisplayBox
-            // imgsrc={this.state.imgsrc}
-            // question={this.state.question}
-            // answerArray={this.state.answerArray}
-            // correctAnswer={this.state.answerArray}
-            // addInfo={this.state.addInfo}
-            // handleNext={this.handleNext}
+            imgsrc={this.state.imgsrc}
+            question={this.state.question}
+            answerArray={this.state.answerArray}
+            correctAnswer={this.state.answerArray}
+            addInfo={this.state.addInfo}
+            handleNext={this.handleNext}
             currQuestion={this.state.questionArray[this.state.questionNumber]}
           />
         </div>

@@ -5,6 +5,7 @@ class DisplayBox extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      id: "",
       imgsrc: "",
       question: "",
       answerArray: "",
@@ -29,6 +30,7 @@ class DisplayBox extends Component {
     return (
       <div id="displayBox">
         <QuestionBox
+          id={this.state.id}
           imgSource={this.props.imgsrc}
           currQuestion={this.state.question}
           answersArray={this.state.answerArray}

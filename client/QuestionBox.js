@@ -26,11 +26,8 @@ class QuestionBox extends Component {
       console.log("selection is empty");
     } else {
       if (this.state.selectedOption === this.props.correctAnswer) {
-        // console.log('correct answer')
-        //update state here to hide answers and show addInfo
         this.setState({ submitted: true, isCorrect: true });
       } else {
-        // console.log('wrong!')
         this.setState({ submitted: true });
       }
     }
@@ -48,11 +45,11 @@ class QuestionBox extends Component {
 
     for (let i = 0; i < newAnswers.length; i += 1) {
       answerDisplay.push(
-        <li>
+        <li key={this.props.id}>
           <input
             type="radio"
             id={newAnswers[i]}
-            key={newAnswers[i]}
+            key={this.props.id}
             value={newAnswers[i]}
             checked={this.state.selectedOption === newAnswers[i]}
             onChange={this.onValueChange}
