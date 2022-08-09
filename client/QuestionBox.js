@@ -13,7 +13,7 @@ class QuestionBox extends Component {
   }
 
   onValueChange(event) {
-    console.log("state updated");
+    console.log("state updated in question box");
 
     this.setState({
       selectedOption: event.target.value,
@@ -26,11 +26,8 @@ class QuestionBox extends Component {
       console.log("selection is empty");
     } else {
       if (this.state.selectedOption === this.props.correctAnswer) {
-        // console.log('correct answer')
-        //update state here to hide answers and show addInfo
         this.setState({ submitted: true, isCorrect: true });
       } else {
-        // console.log('wrong!')
         this.setState({ submitted: true });
       }
     }
@@ -43,16 +40,16 @@ class QuestionBox extends Component {
     const submitted = this.state.submitted;
     const addInfo = this.props.addInfo;
     const feedback =
-      (this.state.isCorrect ? `That is correct!` : `That is incorrect.`) +
+      (this.state.isCorrect ? `That is correct! ` : `That is incorrect. `) +
       `The correct answer is ${this.props.correctAnswer}.`;
 
     for (let i = 0; i < newAnswers.length; i += 1) {
       answerDisplay.push(
-        <li>
+        <li key={this.props.id}>
           <input
             type="radio"
             id={newAnswers[i]}
-            key={newAnswers[i]}
+            key={this.props.id}
             value={newAnswers[i]}
             checked={this.state.selectedOption === newAnswers[i]}
             onChange={this.onValueChange}
@@ -84,7 +81,8 @@ class QuestionBox extends Component {
                 Submit Answer
               </button>
               <button
-                onClick={this.props.nextSubmit(this.props.questionNumber)}
+                // onClick={this.props.nextSubmit(this.props.questionNumber)}
+                onClick={this.props.handleNext}
                 className="button"
                 type="next"
               >
