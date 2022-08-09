@@ -4,6 +4,6 @@ const container = document.getElementById("root");
 const root = createRoot(container);
 root.render(<App tab="home" />);
 
-import App from "/client/App.js";
+import App from "../client/App";
 
-import styles from "/client/scss/bigStyle.scss";
+// import styles from "/client/scss/bigStyle.scss";
