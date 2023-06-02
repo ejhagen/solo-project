@@ -5,33 +5,47 @@
   "main": "index.js",
   "scripts": {
     "start": "NODE_ENV=development nodemon ./server/server.js & NODE_ENV=development npx webpack serve --open",
+    "format": "prettier --write \"src/**/*.{js,jsx}\"",
     "build": "NODE_ENV=production webpack",
-    "dev": "NODE_ENV=development nodemon ./server/server.js & NODE_ENV=development npx webpack serve --open"
+    "dev": "NODE_ENV=development nodemon ./server/server.js & NODE_ENV=development npx webpack serve --open",
+    "lint": "eslint \"src/**/*.{js,jsx}\""
   },
   "author": "ejh ericjameshagen@gmail.com github username: ejhagen",
   "license": "ISC",
   "dependencies": {
     "crypto-browserify": "^3.12.0",
+    "dotenv": "^16.0.1",
+    "eslint": "^8.21.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-jsx-a11y": "^6.6.1",
     "express": "^4.17.3",
     "node-polyfill-webpack-plugin": "^1.1.4",
     "pg": "^8.7.3",
     "postgres": "^3.0.5",
+    "prettier": "^2.7.1",
     "react": "^18.0.0",
-    "react-dom": "^18.0.0"
+    "react-dom": "^18.0.0",
+    "react-router-dom": "^6.3.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.17.8",
-    "@babel/preset-env": "^7.16.11",
-    "@babel/preset-react": "^7.16.7",
-    "babel-loader": "^8.2.4",
+    "@babel/cli": "^7.18.10",
+    "@babel/core": "^7.18.10",
+    "@babel/plugin-proposal-class-properties": "^7.18.6",
+    "@babel/preset-env": "^7.18.10",
+    "@babel/preset-react": "^7.18.6",
+    "babel-loader": "^8.2.5",
     "css-loader": "^6.7.1",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-react": "^7.30.1",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-webpack-plugin": "^3.2.0",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.5.0",
     "sass": "^1.50.0",
     "sass-loader": "^12.6.0",
     "style-loader": "^3.3.1",
-    "webpack": "^5.71.0",
-    "webpack-cli": "^4.9.2",
-    "webpack-dev-server": "^4.8.1"
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0",
+    "webpack-dev-server": "^4.9.3"
   }
 }
