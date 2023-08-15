@@ -6,4 +6,4 @@ root.render(<App tab="home" />);
 
 import App from "../client/App";
 
-// import styles from "/client/scss/bigStyle.scss";
+// import styles from "/client/scss/style.scss";

@@ -1,6 +1,9 @@
-node_modules
+node_modules/
 db.json
 README.md
 .env
-trash.js
+dist/
 db.js
+trash/
+db.json
+bundle.js
