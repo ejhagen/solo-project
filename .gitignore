@@ -3,3 +3,4 @@ db.json
 README.md
 .env
 trash.js
+db.js
