@@ -33,6 +33,7 @@ controller.postFishData = async (req, res, next) => {
       addInfo,
     } = req.body;
 
+    // Could refactor here to use a .every function
     if (
       typeof imgsrc !== "string" ||
       typeof question !== "string" ||
