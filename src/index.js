@@ -4,7 +4,7 @@ const container = document.getElementById('root')
 const root = createRoot(container)
 root.render(<App tab="home" />)
 
-import App from '../client/App'
+import App from './client/App'
 
 // Importing this here is making it render in the page
 // Changed it to import from index.html but running into other issues there

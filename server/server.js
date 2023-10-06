@@ -5,9 +5,10 @@ const path = require('path')
 const router = require('./router')
 app.use(express.json())
 
-app.use('/assets', express.static(path.join(__dirname, '../client/assets/')))
+// TODO: add autofill for filepaths as dependency
+app.use('/assets', express.static(path.join(__dirname, '../src/client/assets')))
 // TODO: figure out if we need routing for other static paths
-app.use('/scss', express.static(path.join(__dirname, '../client/assets/scss/')))
+app.use('/scss', express.static(path.join(__dirname, '../src/client/scss/')))
 // router for fishdata requests
 app.use('/fishdata', router)
 
