@@ -21,7 +21,7 @@ const Question = (flyData, number, numberCorrect) => {
         `The correct answer is ${cAnswer}.`
 
     useEffect(() => {
-        console.log('Use effect triggered')
+        console.log('Use effect triggered - getting flydata')
         getFlyData()
     }, [])
 
@@ -39,7 +39,7 @@ const Question = (flyData, number, numberCorrect) => {
     }
 
     const handleSubmit = (e) => {
-        e.preventDefault()
+        // e.preventDefault()
         console.log('submit clicked', selectedOption)
         if (!selectedOption || submitted) {
             console.log('selection is empty')

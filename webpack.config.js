@@ -3,6 +3,7 @@ const path = require("path");
 //requiring in process for future use of process.env.NODE_ENV
 const process = require("process");
 const NodePolyfillPlugin = require("node-polyfill-webpack-plugin");
+// Why is this commented out? 
 // const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
@@ -19,7 +20,7 @@ module.exports = {
   devServer: {
     static: {
       directory: path.join(__dirname, "client"),
-      publicPath: "/",
+      publicPath: "/public",
     },
     compress: true,
     port: 8080,
@@ -28,7 +29,7 @@ module.exports = {
       "/fishdata": {
         target: "http://localhost:3000",
       },
-      "/assets/*": {
+      "/public": {
         target: "http://localhost:3000",
       },
     },
