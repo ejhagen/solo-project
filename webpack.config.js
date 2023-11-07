@@ -19,18 +19,15 @@ module.exports = {
   },
   devServer: {
     static: {
-      directory: path.join(__dirname, "client"),
+      directory: path.join(__dirname, "public"),
       publicPath: "/public",
     },
     compress: true,
     port: 8080,
-    //uri for proxy?
     proxy: {
       "/fishdata": {
-        target: "http://localhost:3000",
-      },
-      "/public": {
-        target: "http://localhost:3000",
+        target: "http://localhost:3000/fishdata",
+        secure: false
       },
     },
   },

@@ -8,7 +8,7 @@ app.use(express.json())
 // TODO: add autofill for filepaths as dependency
 // app.use(express.static(path.join(__dirname, 'assets')))
 // TODO: figure out if we need routing for other static paths
-app.use(express.static(path.join(__dirname, '/public/')))
+app.use('/public',express.static(path.join(__dirname, '/public/')))
 // router for fishdata requests
 app.use('/fishdata', router)
 
