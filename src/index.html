@@ -6,7 +6,10 @@
     <!-- <meta http-equiv="Content-Security-Policy" content="default-src * 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *"> -->
 
     <title>Fly-dentifier</title>
-    <link rel="stylesheet" href="/client/scss/style.scss" />
+    <!-- have been fiddling with the path here, path seems correct but styles still not being applied. 
+    Error in browser console shows it has invalid mime type, which usually means the file path is not resolved correctly.
+    Check server.js for resolution in express.static-->
+    <link type="text/css" rel="stylesheet" href="/public/css/style.css" />
   </head>
   <body>
     <div id="root">Loading</div>

@@ -21,7 +21,7 @@ const Question = (flyData, number, numberCorrect) => {
         `The correct answer is ${cAnswer}.`
 
     useEffect(() => {
-        console.log('Use effect triggered')
+        console.log('Use effect triggered - getting flydata')
         getFlyData()
     }, [])
 

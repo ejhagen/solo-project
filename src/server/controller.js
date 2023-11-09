@@ -43,7 +43,7 @@ controller.postFishData = async (req, res, next) => {
             typeof correctAnswer !== 'string' ||
             typeof addInfo !== 'string'
         ) {
-            return next(err)
+            return next()
         }
 
         const id = (Math.floor(Math.random() * 10000) + 1).toString()

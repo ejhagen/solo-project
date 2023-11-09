@@ -6,9 +6,9 @@ const router = require('./router')
 app.use(express.json())
 
 // TODO: add autofill for filepaths as dependency
-app.use('/assets', express.static(path.join(__dirname, '../src/client/assets')))
+// app.use(express.static(path.join(__dirname, 'assets')))
 // TODO: figure out if we need routing for other static paths
-app.use('/scss', express.static(path.join(__dirname, '../src/client/scss/')))
+app.use('/public', express.static(path.join(__dirname, '/public/')))
 // router for fishdata requests
 app.use('/fishdata', router)
 
@@ -19,21 +19,25 @@ app.get('/', (req, res) => {
 })
 
 // catch all for invalid file paths
-app.use('/*', (req, res) => {
+app.use('*', (req, res) => {
     console.log('not a valid filepath')
     res.status(404).send('This is not a valid Filepath')
 })
 
 // global error handler
 app.use((err, req, res, next) => {
-    console.log('global error handler invoked')
+    console.log('global error handler invoked', err)
     const defaultErr = {
         log: 'express error handler caught error',
         status: 400,
         message: { err: 'An error occurred' },
     }
     const errorObj = Object.assign({}, defaultErr, err)
-    return res.status(errorObj.status).send(errorObj.message)
+    if (err) {
+        res.status(errorObj.status).send(errorObj.message)
+        return next(err)
+    }
+    return next(err)
 })
 
 // server listen
