@@ -24,6 +24,7 @@ module.exports = {
     },
     compress: true,
     port: 8080,
+    //uri for proxy?
     proxy: {
       "/fishdata": {
         target: "http://localhost:3000/fishdata",

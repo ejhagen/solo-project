@@ -9,7 +9,7 @@
     "build": "NODE_ENV=production webpack",
     "dev": "NODE_ENV=development nodemon ./server/server.js & NODE_ENV=development npx webpack serve --open",
     "lint": "eslint \"src/**/*.{js,jsx}\"",
-    "scss": "node-sass --watch ./scss/styles.scss -o /css/styles.css",
+    "scss": "node-sass --watch ./scss/styles.scss -o ./public/css/styles.css",
     "test": "echo \" Error: write tests dummy\" "
   },
   "author": "ejh ericjameshagen@gmail.com github username: ejhagen",

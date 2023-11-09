@@ -7,14 +7,15 @@ Whether you are a fly fishing enthusiast or just a beginner test your knowledge 
 
 
 TODO:
-1.figure out why the query isn't reutrning anything anymore
+1. figure out why the query isn't reutrning anything anymore
+    a. look into proxy settings
 2. Handle errors so the site doesn't crash
 3. Have a 404 page
-4. 
-5. 
+4. ~~stylesheet not loading? error in browser console~~
+5. apply linting rules and refine script
+    a. remove whitespace?
+    b. add semi-colon
+    c.make sure lint is run on save
 
-FrontEnd
 
-Backend:
 
-Stretch Goals

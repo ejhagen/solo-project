@@ -1,149 +1,147 @@
+* {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  // background-color: rgb(48, 47, 47);
+}
+
+// * {
+//   //   margin: 0;
+//   //   padding: 0;
+//   box-sizing: border-box;
+//   // background-image: url(./spwc.jpg);
+//   // background-color:rgb(48, 47, 47);
+//   font-family: fantasy;
+// }
+
+body {
+  background-color: rgb(167, 173, 168);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background: url(https://i.imgur.com/GBGrN5b.jpeg) no-repeat scroll left center;
+  background-position: 50% 50%;
+  background-size: 1920px 1200px;
+  font-family: "Montserrat", sans-serif;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  display: flex;
+  height: 60px;
+  padding: 20px;
+}
+
+h4 {
+  display: flex;
+}
+
+#inputdiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: rgb(48, 47, 47) solid 3px;
+}
+
+#form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#container {
+  // background-image: url(./spwc.jpg);
+  // background-color:rgb(181, 196, 184);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#displayBox {
+  display: flex;
+  flex-direction: column;
+  background: rgb(126, 122, 125);
+  width: 600px;
+  height: 600px;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+  padding: 10px;
+  border: 4px solid rgb(48, 47, 47);
+  border-radius: 10px;
+}
+
+#image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+img {
+  display: flex;
+  width: auto;
+  height: 250px;
+  justify-content: center;
+  align-items: center;
+  margin: 25px;
+  padding: 25px;
+  border: 4px solid rgb(48, 47, 47);
+  border-radius: 10px;
+}
+
+#questionBox {
+  background: rgb(209, 194, 187);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+  padding: 5px;
+  border: 4px solid rgb(48, 47, 47);
+  border-radius: 10px;
+}
+
+#answerBox {
+  background: rgb(209, 219, 211);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px;
+  padding: 5px;
+  border: 4px solid rgb(48, 47, 47);
+  border-radius: 10px;
+}
+
+#buttonBox {
+  background: rgb(195, 197, 192);
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  border: 4px solid rgb(48, 47, 47);
+  border-radius: 10px;
+}
+
+button {
+  margin: 8px;
+  padding: 3px;
+}
+
+li {
+  margin: 8px;
+  padding: 5px;
+  list-style-type: none;
+}
+
+input[type="radio"] {
+  margin-right: 7px;
+}
+
 $badass: #bada55;
 body { 
   margin: 0; 
   background-color: $badass; 
   
 }
-
-
-// * {
-//   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-//     "Lucida Sans", Arial, sans-serif;
-//   display: flex;
-//   align-items: center;
-//   flex-direction: column;
-//   // background-color: rgb(48, 47, 47);
-// }
-
-// // * {
-// //   //   margin: 0;
-// //   //   padding: 0;
-// //   box-sizing: border-box;
-// //   // background-image: url(./spwc.jpg);
-// //   // background-color:rgb(48, 47, 47);
-// //   font-family: fantasy;
-// // }
-
-// body {
-//   background-color: rgb(167, 173, 168);
-//   background-repeat: no-repeat;
-//   background-attachment: fixed;
-//   background: url(https://i.imgur.com/GBGrN5b.jpeg) no-repeat scroll left center;
-//   background-position: 50% 50%;
-//   background-size: 1920px 1200px;
-//   font-family: "Montserrat", sans-serif;
-//   justify-content: center;
-//   align-items: center;
-// }
-
-// h1 {
-//   display: flex;
-//   height: 60px;
-//   padding: 20px;
-// }
-
-// h4 {
-//   display: flex;
-// }
-
-// #inputdiv {
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   border: rgb(48, 47, 47) solid 3px;
-// }
-
-// #form {
-//   display: flex;
-//   flex-direction: column;
-//   justify-content: center;
-//   align-items: center;
-// }
-
-// #container {
-//   // background-image: url(./spwc.jpg);
-//   // background-color:rgb(181, 196, 184);
-//   display: flex;
-//   flex-direction: column;
-//   justify-content: center;
-//   align-items: center;
-// }
-
-// #displayBox {
-//   display: flex;
-//   flex-direction: column;
-//   background: rgb(126, 122, 125);
-//   width: 600px;
-//   height: 600px;
-//   justify-content: center;
-//   align-items: center;
-//   margin: 10px;
-//   padding: 10px;
-//   border: 4px solid rgb(48, 47, 47);
-//   border-radius: 10px;
-// }
-
-// #image {
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-// }
-
-// img {
-//   display: flex;
-//   width: auto;
-//   height: 250px;
-//   justify-content: center;
-//   align-items: center;
-//   margin: 25px;
-//   padding: 25px;
-//   border: 4px solid rgb(48, 47, 47);
-//   border-radius: 10px;
-// }
-
-// #questionBox {
-//   background: rgb(209, 194, 187);
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   margin: 10px;
-//   padding: 5px;
-//   border: 4px solid rgb(48, 47, 47);
-//   border-radius: 10px;
-// }
-
-// #answerBox {
-//   background: rgb(209, 219, 211);
-//   display: flex;
-//   justify-content: space-between;
-//   align-items: center;
-//   margin: 10px;
-//   padding: 5px;
-//   border: 4px solid rgb(48, 47, 47);
-//   border-radius: 10px;
-// }
-
-// #buttonBox {
-//   background: rgb(195, 197, 192);
-//   display: flex;
-//   justify-content: center;
-//   align-items: baseline;
-//   border: 4px solid rgb(48, 47, 47);
-//   border-radius: 10px;
-// }
-
-// button {
-//   margin: 8px;
-//   padding: 3px;
-// }
-
-// li {
-//   margin: 8px;
-//   padding: 5px;
-//   list-style-type: none;
-// }
-
-// input[type="radio"] {
-//   margin-right: 7px;
-// }
-
