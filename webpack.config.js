@@ -27,8 +27,9 @@ module.exports = {
     //uri for proxy?
     proxy: {
       "/fishdata": {
-        target: "http://localhost:3000/fishdata",
-        secure: false
+        target: "http://localhost:3000",
+        secure: false,
+        changeOrigin: true,
       },
     },
   },
