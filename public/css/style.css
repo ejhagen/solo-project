@@ -70,7 +70,7 @@
     border: 4px solid #302f2f;
     border-radius: 10px; }
   
-  #questionBox {
+  .questionBox {
     background: #d1c2bb;
     display: flex;
     justify-content: center;
