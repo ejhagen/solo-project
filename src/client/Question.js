@@ -27,8 +27,10 @@ const Question = (flyData, number, numberCorrect) => {
 
     async function getFlyData() {
         console.log('get fly data invoked')
-        const res = await fetch('/fishdata')
+
+        const res = await fetch('http://localhost:3000/fishdata')
         const json = await res.json()
+        console.log('json', json)
         flyData = json
         console.log(flyData)
         setQuestion(json[number].question)
