@@ -1,11 +1,11 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 
-// let flyData = []
-// let number = 0
-// let numberCorrect = 0
+let flyData = []
+let number = 0
+let numberCorrect = 0
 
-const Question = (flyData, number, numberCorrect) => {
+const Question = () => {
     const [answers, setAnswers] = useState([])
     const [question, setQuestion] = useState('question')
     const [image, setImage] = useState('')
@@ -13,7 +13,7 @@ const Question = (flyData, number, numberCorrect) => {
     const [addInfo, setAddInfo] = useState('')
     const [selectedOption, setSelectedOption] = useState('')
     const [submitted, setSubmitted] = useState(false)
-    const [isCorrect, setIsCorrect] = useState(false)
+    const [isCorrect, setIsCorrect] = useState(null)
     const [quizOver, setQuizOver] = useState(false)
 
     const feedback =
@@ -32,7 +32,6 @@ const Question = (flyData, number, numberCorrect) => {
         const json = await res.json()
         console.log('json', json)
         flyData = json
-        console.log(flyData)
         setQuestion(json[number].question)
         setAnswers(json[number].answerarray.split(','))
         setImage(json[number].imgsrc)
@@ -52,6 +51,7 @@ const Question = (flyData, number, numberCorrect) => {
                 numberCorrect++
             } else {
                 setSubmitted(true)
+                setIsCorrect(false)
             }
         }
     }
@@ -69,11 +69,23 @@ const Question = (flyData, number, numberCorrect) => {
             setCAnswer(flyData[number].correctanswer)
             setAddInfo(flyData[number].addinfo)
             setSubmitted(false)
-            setIsCorrect(false)
+            setIsCorrect(null)
             setSelectedOption('')
         }
     }
+    const getUpdatedImageSource = (img) => {
+        const prefix = './public'
+        const stripped = img.split('')
+        stripped.shift()
+        const joined = stripped.join('')
+        const updatedString = prefix + joined
 
+        return updatedString
+    }
+    if (image) {
+        getUpdatedImageSource(image)
+    }
+    const test = './public/assets/rainbowtrout.jpg'
     const endQuiz = () => {
         console.log(
             `The quiz is complete, good job! You got ${numberCorrect} questions correct`
@@ -94,7 +106,10 @@ const Question = (flyData, number, numberCorrect) => {
             {!quizOver ? (
                 <>
                     <div>
-                        <img src={image} alt="current fish/fly" />
+                        <img
+                            src={getUpdatedImageSource(image)}
+                            alt="current fish/fly"
+                        />
                     </div>
 
                     <form onSubmit={handleSubmit}>
