@@ -26,17 +26,25 @@ const Question = () => {
     }, [])
 
     async function getFlyData() {
-        console.log('get fly data invoked')
+        // TODO: add options with headers and/or body to request
 
-        const res = await fetch('http://localhost:3000/fishdata')
-        const json = await res.json()
-        console.log('json', json)
-        flyData = json
-        setQuestion(json[number].question)
-        setAnswers(json[number].answerarray.split(','))
-        setImage(json[number].imgsrc)
-        setCAnswer(json[number].correctanswer)
-        setAddInfo(json[number].addinfo)
+        try {
+            console.log('get fly data invoked')
+            const res = await fetch('/fishdata')
+            const json = await res.json()
+            flyData = json
+            console.log(flyData)
+        } catch {
+            console.log('an error occured on the front end')
+        }
+
+        if (flyData.question) {
+            setQuestion(flyData[number].question)
+            setAnswers(flyData[number].answerarray.split(','))
+            setImage(flyData[number].imgsrc)
+            setCAnswer(flyData[number].correctanswer)
+            setAddInfo(flyData[number].addinfo)
+        }
     }
 
     const handleSubmit = (e) => {
@@ -60,7 +68,7 @@ const Question = () => {
         console.log('Next button clicked')
         number++
         // setQuestionNumber((questionNumber) => questionNumber + 1);
-        if (!flyData[number]) {
+        if (!flyData[number].question) {
             endQuiz()
         } else {
             setQuestion(flyData[number].question)

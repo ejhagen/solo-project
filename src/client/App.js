@@ -7,6 +7,8 @@ import Home from './Home'
 const App = () => {
     return (
         <BrowserRouter>
+        <div className="questionBox">
+
             <h1>Fly-dentifier</h1>
             <h2 className="myproperty">A fly fishers online companion</h2>
             <Routes>
@@ -14,6 +16,7 @@ const App = () => {
                 <Route path="quiz" element={<Question />} />
                 <Route path="addAFly" element={<AddAFly />} />
             </Routes>
+        </div>
         </BrowserRouter>
     )
 }
