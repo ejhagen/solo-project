@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!-- <meta http-equiv="Content-Security-Policy" content="default-src * 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *"> -->
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <!-- <meta http-equiv="Content-Security-Policy" content="default-src * 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *"> -->
 
-    <title>Fly-dentifier</title>
-    <!-- have been fiddling with the path here, path seems correct but styles still not being applied. 
+        <title>Fly-dentifier</title>
+        <!-- have been fiddling with the path here, path seems correct but styles still not being applied. 
     Error in browser console shows it has invalid mime type, which usually means the file path is not resolved correctly.
     Check server.js for resolution in express.static-->
-    <link type="text/css" rel="stylesheet" href="/public/css/style.css" />
-  </head>
-  <body>
-    <div id="root">Loading</div>
-    <!-- TODO: Investigate why this isn't needed anymore. App.js is mounted to root but why didn't this get cleaned up?-->
-    <!-- <script type="text/javascript" src="./dist/bundle.js"></script> -->
-  </body>
+        <link type="text/css" rel="stylesheet" href="/public/css/styles.css" />
+    </head>
+    <body>
+        <div id="root">Loading</div>
+        <!-- TODO: Investigate why this isn't needed anymore. App.js is mounted to root but why didn't this get cleaned up?-->
+        <!-- <script type="text/javascript" src="./dist/bundle.js"></script> -->
+    </body>
 </html>
