@@ -1,0 +1,74 @@
+body {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #a7ada8;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background: url(https://i.imgur.com/GBGrN5b.jpeg) no-repeat scroll left center;
+  background-position: 50% 50%;
+  background-size: 1920px 1200px; }
+
+h1 {
+  display: flex;
+  height: 40px;
+  padding: 20px; }
+
+h4 {
+  display: flex; }
+
+button {
+  margin: 10px;
+  padding: 10px; }
+
+li {
+  margin: 8px;
+  padding: 5px;
+  list-style-type: none; }
+
+input[type='radio'] {
+  margin-right: 7px; }
+
+img {
+  display: flex;
+  width: auto;
+  height: 250px;
+  justify-content: center;
+  align-items: center;
+  margin: 25px;
+  padding: 25px;
+  border: 4px solid #302f2f;
+  border-radius: 10px; }
+
+.addinfo {
+  width: 60%;
+  white-space: wrap; }
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+
+.displayBox {
+  display: flex;
+  flex-direction: column;
+  background: #7e7a7d;
+  justify-content: space-between;
+  align-items: center;
+  margin: 50px;
+  padding: 10px;
+  border: 4px solid #302f2f;
+  border-radius: 10px; }
+
+#buttonBox {
+  display: flex;
+  justify-content: center;
+  align-items: baseline; }
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center; }

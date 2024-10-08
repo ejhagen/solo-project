@@ -85,7 +85,7 @@ const Question = () => {
     if (image) {
         getUpdatedImageSource(image)
     }
-    const test = './public/assets/rainbowtrout.jpg'
+    // const test = './public/assets/rainbowtrout.jpg'
     const endQuiz = () => {
         console.log(
             `The quiz is complete, good job! You got ${numberCorrect} questions correct`
@@ -96,14 +96,12 @@ const Question = () => {
     }
 
     // console.log("flydata | questNum", flyData, questionNumber);
-
     return (
-        <div>
+        <div className="displayBox">
             <h1>Welcome to the quiz</h1>
-            {quizOver
-                ? `The quiz is complete, good job! You got ${numberCorrect} questions correct`
-                : null}
-            {!quizOver ? (
+            {quizOver ? (
+                `The quiz is complete, good job! You got ${numberCorrect} questions correct`
+            ) : (
                 <>
                     <div>
                         <img
@@ -111,15 +109,16 @@ const Question = () => {
                             alt="current fish/fly"
                         />
                     </div>
+                    {submitted ? <div>{feedback}</div> : null}
+                    {submitted ? (
+                        <div className="addinfo">{addInfo}</div>
+                    ) : null}
 
-                    <form onSubmit={handleSubmit}>
+                    <form className="form" onSubmit={handleSubmit}>
                         <p>Question: {question}</p>
 
                         <div>
                             <ul className="list">
-                                {submitted ? feedback : ''}
-                                {submitted ? addInfo : ''}
-
                                 {answers.map((answer) => {
                                     return (
                                         <li key={answer}>
@@ -143,28 +142,16 @@ const Question = () => {
                                 })}
                             </ul>
                         </div>
-
                         <div id="buttonBox">
-                            <span>
-                                <button
-                                    className="button"
-                                    type="submit"
-                                    name="submit"
-                                >
-                                    Submit Answer
-                                </button>
-                            </span>
+                            <button type="submit" name="submit">
+                                Submit Answer
+                            </button>
                         </div>
                     </form>
                 </>
-            ) : null}
+            )}
 
-            <button
-                className="button"
-                type="next"
-                name="next"
-                onClick={handleNext}
-            >
+            <button type="next" name="next" onClick={handleNext}>
                 Next
             </button>
         </div>
