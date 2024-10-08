@@ -16,7 +16,7 @@ const AddAFly = () => {
     )
 
     return (
-        <div className="AddAFly">
+        <div className="diplayBox">
             <p>Add your own fly to our database:</p>
             <p>Place instructions here!</p>
 
